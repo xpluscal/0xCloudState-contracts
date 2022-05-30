@@ -104,11 +104,11 @@ contract NetworkStateSoulsUpgradeable is
   		_;
   	}
 
-    function issue(address __to, string calldata __metadataUri) external minRole(ISSUER_ROLE){
+    function issue(address __to, string calldata __metadataUri) external nonReentrant minRole(ISSUER_ROLE){
       _issue(__to, __metadataUri);
     }
 
-    function issueN(address[] calldata __to, string[] calldata __metadataUris) external minRole(ISSUER_ROLE){
+    function issueN(address[] calldata __to, string[] calldata __metadataUris) external nonReentrant minRole(ISSUER_ROLE){
       for (uint i = 0; i < __to.length; i++) {
         _issue(__to[i], __metadataUris[i]);
       }
