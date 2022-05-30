@@ -56,6 +56,13 @@ describe("Running Tests...", function () {
       expect(parseInt(await PROXY.balanceOf(receiver.address))).to.be.eql(1);
       expect(await PROXY.tokenURI(1)).to.be.eql("ipfs://test")
     });
+    it("Should allow minRole Issue to issue multiple", async function () {
+      await expect(PROXY.connect(issuer).issueN([owner.address,issuer.address],["ipfs://test2","ipfs://test3"])).to.emit(PROXY, 'Issue').withArgs(issuer.address, owner.address, 2);
+      expect(parseInt(await PROXY.balanceOf(owner.address))).to.be.eql(1);
+      expect(parseInt(await PROXY.balanceOf(issuer.address))).to.be.eql(1);
+      expect(await PROXY.tokenURI(2)).to.be.eql("ipfs://test2")
+      expect(await PROXY.tokenURI(3)).to.be.eql("ipfs://test3")
+    });
   })
 
   describe("Transfer Functions", function () {
