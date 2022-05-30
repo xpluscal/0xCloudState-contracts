@@ -17,7 +17,7 @@ import "@thirdweb-dev/contracts/lib/MerkleProof.sol";
 // Local
 import "./interfaces/ISBT.sol";
 
-contract NetworkStateSoulsUpgradeable is
+contract CloudStateSoulboundUpgradeable is
   Initializable,
   IOwnable,
   ISBT,

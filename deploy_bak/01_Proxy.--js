@@ -4,7 +4,7 @@
 //     const {deploy} = deployments;
 //     const {deployer} = await getNamedAccounts();
 //
-//     IMPLEMENTATION = await deployments.get('NetworkStateSoulsUpgradeable')
+//     IMPLEMENTATION = await deployments.get('CloudStateSoulboundUpgradeable')
 //
 //     PROXY = await upgrades.deployProxy(IMPLEMENTATION, [deployer.address, "Network State Souls", "NTWRKSLS"]);
 //     console.log("Deployed Proxy: ",PROXY.address);

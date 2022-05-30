@@ -3,7 +3,7 @@ const { Defaults } = require('../test/helpers/helpers');
 module.exports = async ({getNamedAccounts, deployments}) => {
     const {deploy} = deployments;
     const {deployer} = await getNamedAccounts();
-    res = await deploy('NetworkStateSoulsUpgradeable', {
+    res = await deploy('CloudStateSoulboundUpgradeable', {
       from: deployer,
       log: true,
       proxy: {
@@ -27,4 +27,4 @@ module.exports = async ({getNamedAccounts, deployments}) => {
     });
 
   };
-  module.exports.tags = ['NetworkStateSoulsUpgradeable'];
+  module.exports.tags = ['CloudStateSoulboundUpgradeable'];

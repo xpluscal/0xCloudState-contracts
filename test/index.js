@@ -2,7 +2,7 @@ const { expect } = require("chai");
 const { ethers, upgrades } = require("hardhat");
 const { Defaults } = require('./helpers/helpers');
 
-let NetworkStateSoulsUpgradeable,IMPLEMENTATION,PROXY;
+let CloudStateSoulboundUpgradeable,IMPLEMENTATION,PROXY;
 let owner;
 let issuer;
 let receiver;
@@ -21,13 +21,13 @@ describe("Running Tests...", function () {
       gasLimit: 6_500_000,
     };
 
-    IMPLEMENTATION = await (await ethers.getContractFactory("NetworkStateSoulsUpgradeable")).deploy(options);
+    IMPLEMENTATION = await (await ethers.getContractFactory("CloudStateSoulboundUpgradeable")).deploy(options);
     await IMPLEMENTATION.deployed();
     console.log("Contract Address: ",IMPLEMENTATION.address);
   });
-  describe("NetworkStateSoulsUpgradeable", function () {
+  describe("CloudStateSoulboundUpgradeable", function () {
     it("Should allow to deploy Proxy Implementation", async function () {
-      let test = await ethers.getContractFactory("NetworkStateSoulsUpgradeable");
+      let test = await ethers.getContractFactory("CloudStateSoulboundUpgradeable");
       PROXY = await upgrades.deployProxy(test, [owner.address, "Network State Souls", "NTWRKSLS"]);
       await PROXY.deployed();
       expect(await PROXY.name()).to.be.eql("Network State Souls");
