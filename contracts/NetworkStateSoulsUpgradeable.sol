@@ -117,7 +117,6 @@ contract NetworkStateSoulsUpgradeable is
     function _issue(address __to, string calldata __metadataUri) internal minRole(ISSUER_ROLE){
       metadataUris[nextTokenId] = __metadataUri;
       issuers[nextTokenId] = msg.sender;
-      console.log(nextTokenId);
       holders[nextTokenId] = __to;
       _safeMint(__to, 1);
       emit Issue(msg.sender, __to, nextTokenId);
@@ -164,8 +163,6 @@ contract NetworkStateSoulsUpgradeable is
     /*///////////////////////////////////////////////////////////////
                         721 Stuff
     //////////////////////////////////////////////////////////////*/
-
-    function mint() external payable nonReentrant {}
 
     /**
      * @dev see {ERC721AUpgradeable}

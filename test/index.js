@@ -52,8 +52,9 @@ describe("Running Tests...", function () {
       await expect(PROXY.connect(denied).issue(denied.address,"...")).to.be.reverted;
     });
     it("Should allow minRole Issue to issue", async function () {
-      await expect(PROXY.connect(issuer).issue(receiver.address,"...")).to.emit(PROXY, 'Issue').withArgs(issuer.address, receiver.address, 1);
+      await expect(PROXY.connect(issuer).issue(receiver.address,"ipfs://test")).to.emit(PROXY, 'Issue').withArgs(issuer.address, receiver.address, 1);
       expect(parseInt(await PROXY.balanceOf(receiver.address))).to.be.eql(1);
+      expect(await PROXY.tokenURI(1)).to.be.eql("ipfs://test")
     });
   })
 
@@ -68,7 +69,14 @@ describe("Running Tests...", function () {
     });
   })
 
-  describe("Getter Functions", function () {
+  describe("Setter/Getter Functions", function () {
+    it("Should revert non-admin to update contractURI", async function () {
+      await expect(PROXY.connect(issuer).setContractURI("ipfs://newcontracturi")).to.be.reverted;
+    });
+    it("Should allow admin to update contractURI", async function () {
+      await expect(PROXY.connect(owner).setContractURI("ipfs://newcontracturi")).to.not.be.reverted;
+      expect(await PROXY.contractURI()).to.be.eql("ipfs://newcontracturi");
+    });
     it("Should allow publicly querying issuer for token", async function () {
       expect(await PROXY.connect(denied).issuerOf(1)).to.be.eql(issuer.address);
     });
