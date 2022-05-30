@@ -45,7 +45,7 @@ contract NetworkStateSoulsUpgradeable is
     bytes32 private constant CONTRACT_ADMIN_ROLE = keccak256("CONTRACT_ADMIN_ROLE");
     bytes32 private constant ISSUER_ROLE = keccak256("ISSUER_ROLE");
     // @dev reserving space for 10 more roles
-    bytes32[32] private __gap;
+    bytes32[32] private _gap;
 
     address private _owner;
 
@@ -104,14 +104,14 @@ contract NetworkStateSoulsUpgradeable is
   		_;
   	}
 
-    // function issue(address[] calldata __to, string[] calldata __metadataUris) external minRole(ISSUER_ROLE){
-    //   for (uint i = 0; i < __to.length; i++) {
-    //     _issue(__to[i], __metadataUris[i]);
-    //   }
-    // }
-
     function issue(address __to, string calldata __metadataUri) external minRole(ISSUER_ROLE){
       _issue(__to, __metadataUri);
+    }
+
+    function issueN(address[] calldata __to, string[] calldata __metadataUris) external minRole(ISSUER_ROLE){
+      for (uint i = 0; i < __to.length; i++) {
+        _issue(__to[i], __metadataUris[i]);
+      }
     }
 
     function _issue(address __to, string calldata __metadataUri) internal minRole(ISSUER_ROLE){
@@ -291,4 +291,7 @@ contract NetworkStateSoulsUpgradeable is
         // @dev walk up tree to check if user has role admin role
         return _hasMinRole(getRoleAdmin(_role));
     }
+
+    // @dev some space for later vars without shifting.
+    uint256[45] private __gap;
 }

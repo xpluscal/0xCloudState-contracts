@@ -6,8 +6,8 @@ import "@nomiclabs/hardhat-waffle";
 import "@typechain/hardhat";
 import "hardhat-contract-sizer";
 import "hardhat-gas-reporter";
-import "hardhat-deploy-ethers";
 import "hardhat-deploy";
+import "hardhat-deploy-ethers";
 import "solidity-coverage";
 import '@openzeppelin/hardhat-upgrades';
 
@@ -39,6 +39,10 @@ const config: HardhatUserConfig = {
       url: "https://polygon-mumbai.g.alchemy.com/v2/zeYYcnevqTOJ4LRvvVx4QSh-C5Iwx0AU",
       accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
       gasPrice: 50000000000
+    },
+    matic: {
+      url: "https://polygon-mainnet.g.alchemy.com/v2/U7B8hdbuknC9c62z-8QHdnSMIzSrpG0i",
+      accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     }
   },
   gasReporter: {

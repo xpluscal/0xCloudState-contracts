@@ -1,0 +1,13 @@
+// const { Defaults } = require('../test/helpers/helpers');
+//
+// module.exports = async ({getNamedAccounts, deployments}) => {
+//     const {deploy} = deployments;
+//     const {deployer} = await getNamedAccounts();
+//
+//     IMPLEMENTATION = await deployments.get('NetworkStateSoulsUpgradeable')
+//
+//     PROXY = await upgrades.deployProxy(IMPLEMENTATION, [deployer.address, "Network State Souls", "NTWRKSLS"]);
+//     console.log("Deployed Proxy: ",PROXY.address);
+//
+//   };
+//   module.exports.tags = ['Proxy'];

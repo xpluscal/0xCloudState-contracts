@@ -2,19 +2,19 @@
   "manifestVersion": "3.2",
   "admin": {
     "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-    "txHash": "0xc1b04d793fa857947ba193dcbb01ab86ee2c6853243c2becf427888d4ce304ca"
+    "txHash": "0x44e1295c4e46a5f4b8273ff75b3a8b2b576c517abae8ba6f1eed13d455acf2fd"
   },
   "proxies": [
     {
       "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
-      "txHash": "0x4619e2b458d0d20d020ed64e7535adf363235a4e44148be4610fc88ef98b50e2",
+      "txHash": "0x384bed172c2ce09ba8fc89556e8f10da65c7774d65a76d63cdebfa1a374da5a8",
       "kind": "transparent"
     }
   ],
   "impls": {
-    "85fc0e1b326b2ee471f32e702b5d60f42d4f9cde5c8778f91566e1f151bd8d8e": {
+    "e915b4639d541fce58553764d05b4a619027658c307731412b342c3d3656b555": {
       "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-      "txHash": "0x36f12b16825f04392cef4b9a27d9a9dd1394759278ecefb3d8a0ca5424d267c9",
+      "txHash": "0xfdcda9c53d18457e6081cfd0aabcd584686511c8fb259321db0267ecdb79e3e5",
       "layout": {
         "storage": [
           {
@@ -163,7 +163,7 @@
             "src": "contracts/NetworkStateSoulsUpgradeable.sol:43"
           },
           {
-            "label": "__gap",
+            "label": "_gap",
             "offset": 0,
             "slot": "307",
             "type": "t_array(t_bytes32)32_storage",
@@ -177,6 +177,14 @@
             "type": "t_address",
             "contract": "NetworkStateSoulsUpgradeable",
             "src": "contracts/NetworkStateSoulsUpgradeable.sol:50"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "340",
+            "type": "t_array(t_uint256)45_storage",
+            "contract": "NetworkStateSoulsUpgradeable",
+            "src": "contracts/NetworkStateSoulsUpgradeable.sol:296"
           }
         ],
         "types": {
@@ -191,6 +199,10 @@
           "t_array(t_bytes32)dyn_storage": {
             "label": "bytes32[]",
             "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)45_storage": {
+            "label": "uint256[45]",
+            "numberOfBytes": "1440"
           },
           "t_array(t_uint256)49_storage": {
             "label": "uint256[49]",
