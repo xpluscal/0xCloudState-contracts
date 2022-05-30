@@ -22,7 +22,6 @@ contract NetworkStateSoulsUpgradeable is
   ISBT,
   ReentrancyGuardUpgradeable,
   PausableUpgradeable,
-  MulticallUpgradeable,
   AccessControlEnumerableUpgradeable,
   ERC721AUpgradeable
 {
@@ -68,14 +67,17 @@ contract NetworkStateSoulsUpgradeable is
       address _defaultAdmin,
       string memory _name,
       string memory _symbol
-    ) initializer public {
-      __ReentrancyGuard_init();
+    ) initializerERC721A initializer public {
+      // __ReentrancyGuard_init();
       __ERC721A_init(_name, _symbol);
 
       _owner = _defaultAdmin;
+
       _setupRole(DEFAULT_ADMIN_ROLE, _defaultAdmin);
       _setRoleAdmin(CONTRACT_ADMIN_ROLE, DEFAULT_ADMIN_ROLE);
       _setRoleAdmin(ISSUER_ROLE, CONTRACT_ADMIN_ROLE);
+
+      nextTokenId = 1;
     }
 
     /*///////////////////////////////////////////////////////////////
@@ -159,6 +161,8 @@ contract NetworkStateSoulsUpgradeable is
     /*///////////////////////////////////////////////////////////////
                         721 Stuff
     //////////////////////////////////////////////////////////////*/
+
+    function mint() external payable nonReentrant {}
 
     /**
      * @dev see {ERC721AUpgradeable}
