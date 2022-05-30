@@ -18,7 +18,13 @@ module.exports = async ({getNamedAccounts, deployments}) => {
       args: []
     });
     // await res.deployed();
+    console.log(res.implementation);
     console.log("Final Address: ",res.address);
+
+    await run("verify:verify", {
+      address: res.implementation,
+      constructorArguments: [],
+    });
 
   };
   module.exports.tags = ['NetworkStateSoulsUpgradeable'];
