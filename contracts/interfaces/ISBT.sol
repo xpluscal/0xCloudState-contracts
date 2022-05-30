@@ -12,7 +12,7 @@ interface ISBT {
 	function holderOf(uint256 tokenId) external view returns (address);
 	function attribute(uint256 tokenId, uint8 attributeId) external view returns (bytes32);
 
-	function issue(address[] calldata to, string[] calldata metadataUris) external;
+	function issue(address to, string calldata metadataUri) external;
 	function revoke(uint256 tokenId) external;
 	function setAttribute(uint256 tokenId, uint8 attributeId, bytes32 value) external;
 }

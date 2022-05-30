@@ -102,11 +102,11 @@ contract NetworkStateSoulsUpgradeable is
   		_;
   	}
 
-    function issue(address[] calldata __to, string[] calldata __metadataUris) external minRole(ISSUER_ROLE){
-      for (uint i = 0; i < __to.length; i++) {
-        _issue(__to[i], __metadataUris[i]);
-      }
-    }
+    // function issue(address[] calldata __to, string[] calldata __metadataUris) external minRole(ISSUER_ROLE){
+    //   for (uint i = 0; i < __to.length; i++) {
+    //     _issue(__to[i], __metadataUris[i]);
+    //   }
+    // }
 
     function issue(address __to, string calldata __metadataUri) external minRole(ISSUER_ROLE){
       _issue(__to, __metadataUri);
@@ -122,7 +122,7 @@ contract NetworkStateSoulsUpgradeable is
     }
 
     // Only the issuer can revoke the token (non-revokable implementation possible)
-  	function revoke(uint256 tokenId) public virtual issuerOnly(tokenId) {
+  	function revoke(uint256 tokenId) public virtual minRole(ISSUER_ROLE) {
   		// Firing event before mutation to save a memory allocation
   		emit Revoke(msg.sender, holders[tokenId], tokenId);
 
@@ -194,7 +194,8 @@ contract NetworkStateSoulsUpgradeable is
         address to,
         uint256 tokenId
     ) public virtual override minRole(ISSUER_ROLE) {
-        super.transferFrom(from, to, tokenId);
+      return;
+        // super.transferFrom(from, to, tokenId);
     }
 
     /**
@@ -205,7 +206,7 @@ contract NetworkStateSoulsUpgradeable is
         address to,
         uint256 tokenId
     ) public virtual override minRole(ISSUER_ROLE) {
-        super.safeTransferFrom(from, to, tokenId, '');
+        // super.safeTransferFrom(from, to, tokenId, '');
     }
 
     /**
@@ -217,7 +218,7 @@ contract NetworkStateSoulsUpgradeable is
         uint256 tokenId,
         bytes memory _data
     ) public virtual override minRole(ISSUER_ROLE) {
-        super.safeTransferFrom(from,to,tokenId,_data);
+        // super.safeTransferFrom(from,to,tokenId,_data);
     }
 
     /*///////////////////////////////////////////////////////////////
