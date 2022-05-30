@@ -9,6 +9,7 @@ import "@openzeppelin/contracts-upgradeable/security/PausableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/MulticallUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/interfaces/IERC2981Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/structs/EnumerableSetUpgradeable.sol";
 
 import "@thirdweb-dev/contracts/feature/interface/IOwnable.sol";
 import "@thirdweb-dev/contracts/lib/MerkleProof.sol";
@@ -27,6 +28,7 @@ contract NetworkStateSoulsUpgradeable is
 {
 
     using StringsUpgradeable for uint256;
+    using EnumerableSetUpgradeable for EnumerableSetUpgradeable.Bytes32Set;
 
     //////////////////////////////////////////////
     // State Vars
@@ -115,6 +117,7 @@ contract NetworkStateSoulsUpgradeable is
     function _issue(address __to, string calldata __metadataUri) internal minRole(ISSUER_ROLE){
       metadataUris[nextTokenId] = __metadataUri;
       issuers[nextTokenId] = msg.sender;
+      console.log(nextTokenId);
       holders[nextTokenId] = __to;
       _safeMint(__to, 1);
       emit Issue(msg.sender, __to, nextTokenId);

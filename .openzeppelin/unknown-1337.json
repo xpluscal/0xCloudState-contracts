@@ -2,19 +2,19 @@
   "manifestVersion": "3.2",
   "admin": {
     "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0",
-    "txHash": "0x3c7c9ed6baa1d6f4cfb742e557ccf0337143f0c71f57f15306c23861d3cbbd76"
+    "txHash": "0xe8fedf75fb42cc228a7c27402e34411f61ae376d91b2a9ad18579dee9a5262a0"
   },
   "proxies": [
     {
       "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9",
-      "txHash": "0xeb4cb018e1f1d7386ae30cd01605764977cf02faa182fc413af29a989faef356",
+      "txHash": "0x996c63b92010413ecca7972d5fc8d06491c142057bba231e5843028b730efc4d",
       "kind": "transparent"
     }
   ],
   "impls": {
-    "72564f8da071bbfa3d2662b935a132adafd25fc4e5ccb46d9256d548a3812c93": {
+    "0d7b61747d7ef7e551c2b42d3c86bf52e5a650d53b8fda9a60b5228156edd290": {
       "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
-      "txHash": "0x25fc5ed169143fc4d6f146304e4ca1af39324469facba2547fd6bb3fc0b6595b",
+      "txHash": "0xbc20e1f5bb4500143dda0a7c5a0bd92f5e1fe0c423377addd458afc88cf7bb50",
       "layout": {
         "storage": [
           {
@@ -120,7 +120,7 @@
             "slot": "301",
             "type": "t_uint256",
             "contract": "NetworkStateSoulsUpgradeable",
-            "src": "contracts/NetworkStateSoulsUpgradeable.sol:35"
+            "src": "contracts/NetworkStateSoulsUpgradeable.sol:37"
           },
           {
             "label": "issuers",
@@ -128,7 +128,7 @@
             "slot": "302",
             "type": "t_mapping(t_uint256,t_address)",
             "contract": "NetworkStateSoulsUpgradeable",
-            "src": "contracts/NetworkStateSoulsUpgradeable.sol:36"
+            "src": "contracts/NetworkStateSoulsUpgradeable.sol:38"
           },
           {
             "label": "holders",
@@ -136,7 +136,7 @@
             "slot": "303",
             "type": "t_mapping(t_uint256,t_address)",
             "contract": "NetworkStateSoulsUpgradeable",
-            "src": "contracts/NetworkStateSoulsUpgradeable.sol:37"
+            "src": "contracts/NetworkStateSoulsUpgradeable.sol:39"
           },
           {
             "label": "metadataUris",
@@ -144,7 +144,7 @@
             "slot": "304",
             "type": "t_mapping(t_uint256,t_string_storage)",
             "contract": "NetworkStateSoulsUpgradeable",
-            "src": "contracts/NetworkStateSoulsUpgradeable.sol:38"
+            "src": "contracts/NetworkStateSoulsUpgradeable.sol:40"
           },
           {
             "label": "attributes",
@@ -152,7 +152,7 @@
             "slot": "305",
             "type": "t_mapping(t_uint256,t_mapping(t_uint8,t_bytes32))",
             "contract": "NetworkStateSoulsUpgradeable",
-            "src": "contracts/NetworkStateSoulsUpgradeable.sol:40"
+            "src": "contracts/NetworkStateSoulsUpgradeable.sol:42"
           },
           {
             "label": "contractURI",
@@ -160,7 +160,7 @@
             "slot": "306",
             "type": "t_string_storage",
             "contract": "NetworkStateSoulsUpgradeable",
-            "src": "contracts/NetworkStateSoulsUpgradeable.sol:41"
+            "src": "contracts/NetworkStateSoulsUpgradeable.sol:43"
           },
           {
             "label": "__gap",
@@ -168,7 +168,7 @@
             "slot": "307",
             "type": "t_array(t_bytes32)32_storage",
             "contract": "NetworkStateSoulsUpgradeable",
-            "src": "contracts/NetworkStateSoulsUpgradeable.sol:46"
+            "src": "contracts/NetworkStateSoulsUpgradeable.sol:48"
           },
           {
             "label": "_owner",
@@ -176,7 +176,7 @@
             "slot": "339",
             "type": "t_address",
             "contract": "NetworkStateSoulsUpgradeable",
-            "src": "contracts/NetworkStateSoulsUpgradeable.sol:48"
+            "src": "contracts/NetworkStateSoulsUpgradeable.sol:50"
           }
         ],
         "types": {

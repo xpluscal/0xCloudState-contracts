@@ -53,15 +53,7 @@ describe("Running Tests...", function () {
     });
     it("Should allow minRole Issue to issue", async function () {
       await expect(PROXY.connect(issuer).issue(receiver.address,"...")).to.emit(PROXY, 'Issue').withArgs(issuer.address, receiver.address, 1);
-    });
-  })
-
-  describe("Revoke Functions", function () {
-    it("Should revert if non-issuer tries to revoke", async function () {
-      await expect(PROXY.connect(denied).revoke(1)).to.be.reverted;
-    });
-    it("Should allow revoking by minRole issuer", async function () {
-      await expect(PROXY.connect(issuer).revoke(1)).to.emit(PROXY, 'Revoke').withArgs(issuer.address, receiver.address, 1);
+      expect(parseInt(await PROXY.balanceOf(receiver.address))).to.be.eql(1);
     });
   })
 
@@ -73,6 +65,24 @@ describe("Running Tests...", function () {
     it("Should revert if issuer tries to transfer token", async function () {
       await PROXY.connect(issuer).transferFrom(receiver.address,denied.address,1);
       expect(parseInt(await PROXY.balanceOf(receiver.address))).to.be.eql(1);
+    });
+  })
+
+  describe("Getter Functions", function () {
+    it("Should allow publicly querying issuer for token", async function () {
+      expect(await PROXY.connect(denied).issuerOf(1)).to.be.eql(issuer.address);
+    });
+    it("Should allow publicly querying holder for token", async function () {
+      expect(await PROXY.connect(denied).holderOf(1)).to.be.eql(receiver.address);
+    });
+  })
+
+  describe("Revoke Functions", function () {
+    it("Should revert if non-issuer tries to revoke", async function () {
+      await expect(PROXY.connect(denied).revoke(1)).to.be.reverted;
+    });
+    it("Should allow revoking by minRole issuer", async function () {
+      await expect(PROXY.connect(issuer).revoke(1)).to.emit(PROXY, 'Revoke').withArgs(issuer.address, receiver.address, 1);
     });
   })
 });
